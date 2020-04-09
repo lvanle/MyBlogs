@@ -1,10 +1,12 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from "vue";
-import App from "./App";
-// import router from "./router";
+
 import VueResource from "vue-resource";
+
 import VueRouter from "vue-router";
+
+import App from "./App";
 import Routes from "./routes";
 
 Vue.config.productionTip = false;
@@ -25,7 +27,7 @@ Vue.directive("theme", {
     if (binding.value == "wide") {
       el.style.maxWidth = "1260px";
     } else if (binding.value == "narrow") {
-      el.style.maxWidth = "560px";
+      el.style.maxWidth = "800px";
     }
     if (binding.arg == "column") {
       el.style.background = "#6677cc";

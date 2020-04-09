@@ -1,5 +1,10 @@
 <template>
   <div id="add-blog">
+    <span
+      >{{ new Date().toLocaleDateString() }}--{{ new Date().getHours() }} :
+      {{ new Date().getMinutes() }}记事</span
+    >
+    <hr />
     <h2>添加博客</h2>
     <form v-if="!submitted">
       <label>博客标题</label>
@@ -38,6 +43,7 @@
         </li>
       </ul>
       <p>作者：{{ blog.author }}</p>
+      <p>时间：{{ blog.date }}</p>
     </div>
   </div>
 </template>
@@ -51,7 +57,16 @@ export default {
         title: "",
         content: "",
         categories: [],
-        author: ""
+        author: "",
+        date:
+          new Date().toLocaleDateString() +
+          "--" +
+          new Date().getHours() +
+          ":" +
+          new Date().getMinutes()
+        // "new Date().toLocaleDateString()" +
+        // "new Date().getHours()" +
+        // "new Date().getMinutes() "
       },
       authors: ["lvan", "tony", "telly"],
       submitted: false
@@ -78,6 +93,12 @@ export default {
   margin: 20px auto;
   max-width: 600px;
   padding: 20px;
+}
+span {
+  display: block;
+  height: 20px;
+  text-align: center;
+  color: #555;
 }
 label {
   display: block;

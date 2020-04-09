@@ -7,12 +7,14 @@
         <h2 v-rainbow>{{ blog.title }}</h2>
       </router-link>
       <article>{{ blog.content | snippet }}</article>
+      <span>{{ blog.date }}</span>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  name: "show-blogs",
   data() {
     return {
       blogs: [],
@@ -34,7 +36,7 @@ export default {
           // console.log(key);
           // console.log(data[key]);
           data[key].id = key;
-          blogsArray.push(data[key]);
+          blogsArray.unshift(data[key]);
         }
         //console.log(blogsArray);
         this.blogs = blogsArray;
@@ -90,5 +92,10 @@ input[type="text"] {
   padding: 8px;
   width: 100%;
   box-sizing: border-box;
+}
+span {
+  float: right;
+  margin-right: 30%;
+  margin-top: 20px auto;
 }
 </style>
